@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "hbs": "^4.1.1"
+    "hbs": "^4.1.1",
+    "webdriverio": "^7.19.3"
   },
   "devDependencies": {
     "jest": "^27.5.1"
