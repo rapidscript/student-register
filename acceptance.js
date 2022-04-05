@@ -1,28 +1,28 @@
-const { remote } = require('webdriverio');
+const puppeteer = require('puppeteer');
 const assert = require('assert');
 
-let browser;
+try{
+    (async () => {
+        const browser = await puppeteer.launch({ headless: true });
+        const page = await browser.newPage();
+        await page.goto('https://www.amazon.com');
 
-;(async () => {
-    browser = await remote({
-        capabilities: { browserName: 'chrome' }
-    })
+        const searchInput = await page.$('#twotabsearchtextbox');
+        await searchInput.type('Testing Book');
 
-    await browser.navigateTo('https://www.amazon.com')
+        const searchBtn = await page.$('#nav-search-submit-button');
+        await searchBtn.click();
 
-    const searchInput = await browser.$('#twotabsearchtextbox')
-    await searchInput.setValue('Testing Book')
+        await page.waitForTimeout(2000);
 
-    const searchBtn = await browser.$('#nav-search-submit-button')
-    await searchBtn.click()
+        const pageTitle = await page.title();
+        
+        assert(pageTitle === 'Amazon.com : Testing Book');
+        console.log("Title matched successfully");
 
-    const pageTitle = await browser.getTitle();
-    
-    assert(pageTitle === 'Amazon.com : Testing Book');
+        await browser.close();
+    })();
 
-    await browser.deleteSession();
-
-})().catch((err) => {
+} catch (err) {
     console.error(err);
-    return browser.deleteSession();
-})
+}
