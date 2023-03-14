@@ -34,6 +34,9 @@ jobs:
         render-token: ${{secrets.RENDER_API_KEY}}
         github-token: ${{secrets.ACC_API_KEY}}
         service-id: "srv-cg895c1mbg53mc4n346g"
+        retries: 20
+        wait: 16000
+        sleep: 30000
         #heroku_app_name: "app-zero-two"
         #heroku_email: "austin.sifuna@gmail.com"
     - run: node acceptance.js
