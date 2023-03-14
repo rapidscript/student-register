@@ -32,6 +32,7 @@ jobs:
       with:
         #heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         render-token: ${{secrets.RENDER_API_KEY}}
+        github-token: ${{secrets.ACC_API_KEY}}
         service-id: "srv-cg895c1mbg53mc4n346g"
         #heroku_app_name: "app-zero-two"
         #heroku_email: "austin.sifuna@gmail.com"
