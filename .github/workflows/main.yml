@@ -28,9 +28,11 @@ jobs:
       run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - uses: akhileshns/heroku-deploy@v3.12.12
+    - uses: bounceapp/render-action@0.6.0
       with:
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "app-zero-two"
-        heroku_email: "austin.sifuna@gmail.com"
+        #heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        render-token: "rnd_NMlqnf82qZMN7GSewKNYFwi59qXF"
+        service-id: "srv-cg895c1mbg53mc4n346g"
+        #heroku_app_name: "app-zero-two"
+        #heroku_email: "austin.sifuna@gmail.com"
     - run: node acceptance.js
