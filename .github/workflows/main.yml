@@ -31,7 +31,7 @@ jobs:
     - uses: bounceapp/render-action@0.6.0
       with:
         #heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        render-token: "rnd_NMlqnf82qZMN7GSewKNYFwi59qXF"
+        render-token: ${{secrets.RENDER_API_KEY}}
         service-id: "srv-cg895c1mbg53mc4n346g"
         #heroku_app_name: "app-zero-two"
         #heroku_email: "austin.sifuna@gmail.com"
